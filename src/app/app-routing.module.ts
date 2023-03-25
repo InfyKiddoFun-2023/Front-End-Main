@@ -15,6 +15,10 @@ import { SignupComponent } from './signup/signup.component';
 import { SignupuserComponent } from './signupuser/signupuser.component';
 import { SignupmentorComponent } from './signupmentor/signupmentor.component';
 import { SignupparentComponent } from './signupparent/signupparent.component';
+import { CreateassignmentComponent } from './createassignment/createassignment.component';
+import { UploadassignmentComponent } from './uploadassignment/uploadassignment.component';
+import { ChooseassignmentComponent } from './chooseassignment/chooseassignment.component';
+import { StudentComponent } from './student/student.component';
 
 
 const routes: Routes = [
@@ -32,7 +36,11 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'signupuser', component:SignupuserComponent},
   {path: 'signupmentor', component:SignupmentorComponent},
-  {path: 'signupparent', component:SignupparentComponent}
+  {path: 'signupparent', component:SignupparentComponent},
+  {path: 'createassignment', component:CreateassignmentComponent},
+  {path: 'uploadassignment', component: UploadassignmentComponent},
+  {path: 'chooseassignment', component: ChooseassignmentComponent},
+  {path: 'student', component: StudentComponent}
 
 ];
 

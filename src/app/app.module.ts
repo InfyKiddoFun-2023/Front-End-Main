@@ -20,6 +20,11 @@ import { SignupComponent } from './signup/signup.component';
 import { SignupuserComponent } from './signupuser/signupuser.component';
 import { SignupmentorComponent } from './signupmentor/signupmentor.component';
 import { SignupparentComponent } from './signupparent/signupparent.component';
+import { CreateassignmentComponent } from './createassignment/createassignment.component';
+import { UploadassignmentComponent } from './uploadassignment/uploadassignment.component';
+import { ChooseassignmentComponent } from './chooseassignment/chooseassignment.component';
+import { StudentComponent } from './student/student.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +44,11 @@ import { SignupparentComponent } from './signupparent/signupparent.component';
     SignupComponent,
     SignupuserComponent,
     SignupmentorComponent,
-    SignupparentComponent
+    SignupparentComponent,
+    CreateassignmentComponent,
+    UploadassignmentComponent,
+    ChooseassignmentComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
