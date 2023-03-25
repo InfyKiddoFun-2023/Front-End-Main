@@ -1,4 +1,22 @@
-<div class="outer">
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+    <form (submit)="loginUser($event)">
+      <label>Email</label>
+      <input type="email" placeholder="" required />
+      <label>Password</label>
+      <input type="password" placeholder="" required />
+      <div class="input-field">
+        <!-- <input type="button" value="Login" /> -->
+        <button type="submit">Login</button>
+      </div>
+    </form>
+  </div>
+  <p class="para-2">
+    Not have an account? <a routerLink="/signup">Sign Up Here</a>
+  </p>
+</body>
+<!-- <div class="outer">
   <div class="container">
     <div class="row">
       <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
@@ -40,4 +58,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
