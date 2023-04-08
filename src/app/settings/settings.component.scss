@@ -1,31 +1,62 @@
-.outer{
-  font-size: 40px;
-  text-align:center;
-}
-table {
-  background: #f7f2f6;
-  border-radius: 0.25em;
-  border-collapse: collapse;
-  margin: 1em;
-  width: 500px;
-  height: 200px;
-  font-size: xx-large;
-  text-align: center;
-}
-th {
-  border-bottom: 1px solid #364043;
-  color: #E2B842;
-  font-size: 0.85em;
-  font-weight: 600;
-  padding: 0.5em 1em;
-  text-align: left;
-}
-td {
-  color: #fff;
-  font-weight: 400;
-  padding: 0.65em 1em;
-}
-tr:hover {
-  background-color: rgb(209, 201, 198);
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #f8f6f6;
+
+
+  h1 {
+    font-size: 50px;
+    color: #333333;
+    margin: 0;
+  }
 }
 
+.card {
+  margin: 20px auto;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.card-head {
+  background-color: #07305e;
+  color: #fff;
+  padding: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  font-size: 30px;
+}
+
+th {
+  background-color: #61d6d6;
+  color: #fff;
+  font-size: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  color: #e21a0c;
+}

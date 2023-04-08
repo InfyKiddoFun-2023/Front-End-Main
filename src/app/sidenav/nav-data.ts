@@ -6,7 +6,7 @@ export const navbarData = [
     },
     {
         routeLink: 'courses',
-        icon: 'fal fa-book',
+        icon: 'fal fa-book-open',
         label: 'Courses'
     },
     {
@@ -26,7 +26,7 @@ export const navbarData = [
     },
     {
         routeLink: 'media',
-        icon: 'fal fa-camera',
+        icon: "fal fa-film",
         label: 'Media'
     },
     {
@@ -36,12 +36,12 @@ export const navbarData = [
     },
     {
       routeLink: 'login',
-      icon: 'fal fa-user',
+      icon: 'fal fa-user-plus',
       label: 'Login'
   },
   {
     routeLink: 'signup',
-    icon: 'fal fa-user',
+    icon: 'fal fa-address-card',
     label: 'SignUp'
 },
 ];
