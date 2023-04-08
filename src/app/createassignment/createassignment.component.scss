@@ -1,15 +1,68 @@
-.outer{
-  font-size: 40px;
-  text-align:center;
-}
-.ques{
-  display:table-cell;
-  max-width: 600px;
-  background-color: white;
-  box-shadow: red;
-  font-size: 40px;
-}
-.text{
-  font-size: 20px;
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #F5F5F5;
+
+  h1 {
+    font-size: 50px;
+    color: #333333;
+    margin: 0;
+  }
 }
 
+.ques {
+  margin-top: 40px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      font-size: 40px;
+      color: #070606;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #070606;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #070606;
+
+      &:focus {
+        outline: none;
+        border-color: #0066CC;
+      }
+    }
+
+    input[type="submit"] {
+      width: 200px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0066CC;
+      color: #FFFFFF;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #0052A3;
+      }
+    }
+  }
+
+  .text {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #fcfcfc;
+    text-align: center;
+  }
+}

@@ -3,22 +3,38 @@
   text-align:center;
 }
 
+.video{
+  position: absolute;
+  padding:2px;
+}
+
 .video-scroller {
-  overflow-x: scroll;
-  white-space: nowrap;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  left: calc(100% + 16px);
+  bottom: 0;
+  width: 500px;
 }
 
   .video-scroller-inner {
-    display: inline-flex;
-  }
+    display: flex;
+  flex-direction: column;
+  padding-bottom: 16px;
+}
 
   .video-card {
-    margin-right: 500px;
-    width: 300px;
+    margin-right: 16px;
+    width: 250px;
     height: 200px;
-    padding-top: 15px;
-    border:black;
+    padding-top: 5px;
+    border: black;
+    box-sizing: border-box;
+    page-break-after: auto;
 
   }
 
