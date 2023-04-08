@@ -1,40 +1,76 @@
-.outer{
-  font-size: 40px;
-  text-align:center;
-}
-
-.video{
-  position: absolute;
-  padding:2px;
-}
-
-.video-scroller {
+.outer {
   display: flex;
-  flex-direction: column;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  height: 800px;
-  position: absolute;
-  top: 0;
-  left: calc(100% + 16px);
-  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: #f8f6f6;
+
+
+  h1 {
+    font-size: 50px;
+    color: #333333;
+    margin: 0;
+  }
+}
+
+.video-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+}
+
+.main-video {
+  position: relative;
+  height: 500px;
+  width: 1000px;
+}
+
+.main-video iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.video-scroller-container {
+  position: relative;
+  height: 500px;
   width: 500px;
 }
 
-  .video-scroller-inner {
-    display: flex;
-  flex-direction: column;
-  padding-bottom: 16px;
+.video-scroller {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 700px;
+  width: 500px;
+  overflow-y: scroll;
 }
 
-  .video-card {
-    margin-right: 16px;
-    width: 250px;
-    height: 200px;
-    padding-top: 5px;
-    border: black;
-    box-sizing: border-box;
-    page-break-after: auto;
+.video-scroller-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
 
-  }
+.video-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
 
+.video-card:hover {
+  background-color: #eee;
+}
+
+.video-thumbnail {
+  flex-shrink: 0;
+}
+
+.video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

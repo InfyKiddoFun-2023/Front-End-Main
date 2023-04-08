@@ -1,21 +1,21 @@
 <div class="outer">
   <h1>Sessions</h1>
+</div>
+<div class="video-container">
+  <div class="main-video">
+    <iframe width="1000" height="1500" src="https://www.youtube-nocookie.com/embed/6znrAJbRAUY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Your browser does not support the video tag."></iframe>
   </div>
-<div class="video">
-    <iframe width="1000" height="500" src="https://www.youtube-nocookie.com/embed/6znrAJbRAUY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen alt="Your browser does not support the video tag."></iframe>
+  <div class="video-scroller-container">
     <div class="video-scroller">
       <div class="video-scroller-inner">
-        <div class="video-scroller">
-          <div class="video-scroller-inner">
-            <div class="video-card" *ngFor="let video of videos">
-              <img class="video-thumbnail" src="../../assets/images/Thumbnail.jpeg" alt="Video Thumbnail" height="200" width="500">
-              <div class="video-info">
-                <h3 class="video-title">{{ video.title }}</h3>
-                <p class="video-views">{{ video.views }} views</p>
-              </div>
-            </div>
+        <div class="video-card" *ngFor="let video of videos">
+          <img class="video-thumbnail" src="../../assets/images/Thumbnail.jpeg" alt="Video Thumbnail" height="100" width="200">
+          <div class="video-info">
+            <h3 class="video-title">{{ video.title }}</h3>
+            <p class="video-views">{{ video.views }} views</p>
           </div>
         </div>
       </div>
-</div>
+    </div>
   </div>
+</div>
