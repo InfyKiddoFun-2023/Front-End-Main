@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+
   constructor(private router: Router) {}
   ngOnInit(): void {}
   loginUser(event: any) {
@@ -21,20 +24,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-// export class LoginComponent implements OnInit {
-
-//   type: string = "password"
-//   isText: boolean =false;
-//   eyeIcon: string = "fa-eye-slash";
-//   constructor() { }
-
-//   ngOnInit(): void{
-//   }
-
-//   hideShowPass(){
-//     this.isText = !this.isText;
-//     this.isText ? this.eyeIcon = "fa fa-eye-slash" : this.eyeIcon = "fa fa-eye-slash";
-//     this.isText ? this.type ="text" : this.type ="password";
-//   }
-
-// }
