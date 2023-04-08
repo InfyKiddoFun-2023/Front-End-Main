@@ -1,47 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { NotFoundLayoutComponent } from './layout/not-found-layout/not-found-layout.component';
+import { AuthGuard } from './guards/auth.guard';
 
-import { SessionsComponent } from './sessions/sessions.component';
-import { HomeComponent } from './home/home.component';
-import { MediaComponent } from './media/media.component';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { CoursesComponent } from './courses/courses.component';
-import { SettingsComponent } from './settings/settings.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { SignupuserComponent } from './signupuser/signupuser.component';
-import { SignupmentorComponent } from './signupmentor/signupmentor.component';
-import { SignupparentComponent } from './signupparent/signupparent.component';
-import { CreateassignmentComponent } from './createassignment/createassignment.component';
-import { UploadassignmentComponent } from './uploadassignment/uploadassignment.component';
-import { ChooseassignmentComponent } from './chooseassignment/chooseassignment.component';
-import { StudentComponent } from './student/student.component';
-
-
-const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'courses', component: CoursesComponent},
-  {path: 'statistics', component: StatisticsComponent},
-  {path: 'sessions', component: SessionsComponent},
-  {path: 'assignments', component: AssignmentsComponent},
-  {path: 'media', component: MediaComponent},
-  {path: 'settings', component: SettingsComponent},
-  {path: 'aboutus', component: AboutusComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'signupuser', component:SignupuserComponent},
-  {path: 'signupmentor', component:SignupmentorComponent},
-  {path: 'signupparent', component:SignupparentComponent},
-  {path: 'createassignment', component:CreateassignmentComponent},
-  {path: 'uploadassignment', component: UploadassignmentComponent},
-  {path: 'chooseassignment', component: ChooseassignmentComponent},
-  {path: 'student', component: StudentComponent}
-
+const routes: Routes = [  
+  { path: 'account', loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule) },
+  { path: 'home', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule) },
+  { path: 'explore', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/explore/explore.module').then(m => m.ExploreModule) },
+  { path: 'courses', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/courses/courses.module').then(m => m.CoursesModule) },
+  { path: 'reports', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/reports/reports.module').then(m => m.ReportsModule) },
+  { path: 'about', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule) },
+  { path: 'not-found', component: NotFoundLayoutComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'account/login'},
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

@@ -1,61 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BodyComponent } from './body/body.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { HomeComponent } from './home/home.component';
-import { CoursesComponent } from './courses/courses.component';
-import { StatisticsComponent } from './statistics/statistics.component';
-import { SessionsComponent } from './sessions/sessions.component';
-import { AssignmentsComponent } from './assignments/assignments.component';
-import { MediaComponent } from './media/media.component';
-import { SettingsComponent } from './settings/settings.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactComponent } from './contact/contact.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { SignupuserComponent } from './signupuser/signupuser.component';
-import { SignupmentorComponent } from './signupmentor/signupmentor.component';
-import { SignupparentComponent } from './signupparent/signupparent.component';
-import { CreateassignmentComponent } from './createassignment/createassignment.component';
-import { UploadassignmentComponent } from './uploadassignment/uploadassignment.component';
-import { ChooseassignmentComponent } from './chooseassignment/chooseassignment.component';
-import { StudentComponent } from './student/student.component';
-
+import { LayoutModule } from './layout/layout.module';
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { ClaimsDataService } from './services/claims-data.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BodyComponent,
-    SidenavComponent,
-    HomeComponent,
-    CoursesComponent,
-    StatisticsComponent,
-    SessionsComponent,
-    AssignmentsComponent,
-    MediaComponent,
-    SettingsComponent,
-    AboutusComponent,
-    ContactComponent,
-    LoginComponent,
-    SignupComponent,
-    SignupuserComponent,
-    SignupmentorComponent,
-    SignupparentComponent,
-    CreateassignmentComponent,
-    UploadassignmentComponent,
-    ChooseassignmentComponent,
-    StudentComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    LayoutModule,
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('authToken');
+        },
+        allowedDomains: ['localhost:7251'],
+        disallowedRoutes: [
+          'localhost:7251/api/users/mentor/token/get',
+          'localhost:7251/api/users/student/token/get',
+          'localhost:7251/api/users/parent/token/get'
+        ]
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService, ClaimsDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
