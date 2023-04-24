@@ -1,6 +1,6 @@
 import { TypedResult } from "./typed-result";
 
-export interface PaginatedResult<T> extends TypedResult<T> {
+export interface PaginatedResult<T> extends TypedResult<T[]> {
     currentPage: Number,
     totalPages: Number,
     totalCount: Number,
