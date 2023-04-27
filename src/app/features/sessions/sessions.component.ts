@@ -4,7 +4,7 @@ import { StudentCourseService } from 'src/app/services/student-course.service';
 
 @Component({
   selector: 'app-courses',
-  templateUrl: './classI-V.component.html'
+  templateUrl: './sessions.component.html'
 })
 export class CoursesComponent implements OnInit {
   constructor(private studentCourseService: StudentCourseService) { }
