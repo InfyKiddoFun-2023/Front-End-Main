@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: 'explore', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/explore/explore.module').then(m => m.ExploreModule) },
   { path: 'courses', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/courses/courses.module').then(m => m.CoursesModule) },
   { path: 'reports', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/reports/reports.module').then(m => m.ReportsModule) },
-  { path: 'sessions', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/sessions/sessions.module').then(m => m.ReportsModule) },
   { path: 'about', component: MainLayoutComponent, canActivate: [AuthGuard], loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule) },
   { path: 'not-found', component: NotFoundLayoutComponent },
   { path: '', pathMatch: 'full', redirectTo: 'account/login'},
