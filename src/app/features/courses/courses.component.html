@@ -1,17 +1,11 @@
-<section class="bg-white dark:bg-gray-900">
-    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
-        <div class="mx-auto mb-8 max-w-screen-sm lg:mb-16">
-            <h2 class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">Your Courses</h2>
-            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Find all your enrolled courses here</p>
-        </div>
-    </div>
-</section>
-<div class="grid grid-cols-4 gap-4">
-    <div class="max-w-xs rounded overflow-hidden shadow-lg mt-4">
-      <div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class I-V</div>
-      <img src="../../../assets/img/CLASS I-V.JPG" alt="" class="w-full">
-    </div>
-    <div class="max-w-xs rounded overflow-hidden shadow-lg mt-4">
-      <div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class VI-X</div>
-      <img src="../../../assets/img/CLASS VI-X.JPG" alt="" class="w-full">
-    </div>
+<div class="max-w-screen-xl mx-auto">
+	<div *ngIf="isStudent">
+		<app-student-courses></app-student-courses>
+	</div>
+	<div *ngIf="isMentor">
+		<app-mentor-courses></app-mentor-courses>
+	</div>
+	<div *ngIf="isParent">
+		<p>Courses Parent works!</p>
+	</div>
+</div>

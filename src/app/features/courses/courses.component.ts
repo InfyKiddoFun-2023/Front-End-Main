@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseResponse } from 'src/app/models/courses/course-response';
+import { ClaimsDataService } from 'src/app/services/claims-data.service';
 import { StudentCourseService } from 'src/app/services/student-course.service';
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html'
 })
-export class CoursesComponent implements OnInit {
-  constructor(private studentCourseService: StudentCourseService) { }
+export class CoursesComponent {
 
-  private _pageNumber: number = 1;
-  private pageSize: number = 10;
-  private searchString: string = '';
+  private role: String;
 
-  private courses: CourseResponse[] = [];
+  constructor(claimDataService: ClaimsDataService) {
+    this.role = claimDataService.role;
+  }
   
-  ngOnInit(): void {
-    
+  get isStudent(): boolean {
+    return this.role === 'Student';
   }
 
-  set pageNumber(pageNumber: number) {
-    this._pageNumber = pageNumber;
-    this.getCourses();
+  get isMentor(): boolean {
+    return this.role === 'Mentor';
   }
 
-  getCourses() {
-    this.studentCourseService.getStudentCourses(this.pageNumber, this.pageSize, this.searchString)
-      .subscribe(response => {
-        this.courses = response.data;
-      });
+  get isParent(): boolean {
+    return this.role === 'Parent';
   }
 }
