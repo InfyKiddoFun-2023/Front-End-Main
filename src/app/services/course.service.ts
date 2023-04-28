@@ -9,7 +9,7 @@ import { CourseFullResponse } from "../models/courses/course-full-response";
 @Injectable({
     providedIn: "root"
 })
-export class StudentCourseService extends HttpClientService {
+export class CourseService extends HttpClientService {
     constructor(private httpClient: HttpClient, private envUrl: EnvironmentUrlService) {
         super(envUrl);
     }
