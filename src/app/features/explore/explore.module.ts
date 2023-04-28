@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExploreComponent } from './explore.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: ExploreComponent },
@@ -10,7 +11,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ExploreComponent
+    ExploreComponent,
+    SearchResultsComponent
   ],
   imports: [
     CommonModule,
