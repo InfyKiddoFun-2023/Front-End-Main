@@ -10,6 +10,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ClaimsDataService } from './services/claims-data.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { ClaimsDataService } from './services/claims-data.service';
       }
     })
   ],
-  providers: [AuthGuard, AuthService, ClaimsDataService],
+  providers: [AuthGuard, AuthService, ClaimsDataService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
