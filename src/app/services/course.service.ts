@@ -6,6 +6,7 @@ import { PaginatedResult } from "../models/wrapper/paginated-result";
 import { CourseResponse } from "../models/courses/course-response";
 import { CourseFullResponse } from "../models/courses/course-full-response";
 import { Subject } from "../models/enums/subject.enum";
+import { AgeGroup } from "../models/enums/age-group.enum";
 
 @Injectable({
     providedIn: "root"
@@ -28,7 +29,20 @@ export class CourseService extends HttpClientService {
         );
     }
 
-    getCourses(pageNumber: number, pageSize: number, searchString: string) {
+    getCoursesByAgeGroup(pageNumber: number, pageSize: number, searchString: String, ageGroup: AgeGroup) {
+        return this.httpClient.get<PaginatedResult<CourseResponse>>(
+            this.getRoute('api/courses/age-group/' + ageGroup),
+            {
+                headers: this.getHeaders(true),
+                params: new HttpParams()
+                    .set('pageNumber', pageNumber.toString())
+                    .set('pageSize', pageSize.toString())
+                    .set('searchString', searchString.toString())
+            }
+        );
+    }
+
+    getCourses(pageNumber: Number, pageSize: Number, searchString: String) {
         return this.httpClient.get<PaginatedResult<CourseResponse>>(            
             this.getRoute('api/courses'),
             {
@@ -36,7 +50,7 @@ export class CourseService extends HttpClientService {
                 params: new HttpParams()
                     .set('pageNumber', pageNumber.toString())
                     .set('pageSize', pageSize.toString())
-                    .set('searchString', searchString)
+                    .set('searchString', searchString.toString())
             }
         );
     }

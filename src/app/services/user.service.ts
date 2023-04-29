@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 import { EnvironmentUrlService } from "./http/env-url.service";
 import { StudentRegisterRequest } from "../models/users/student-register-request";
 import { MentorRegisterRequest } from "../models/users/mentor-register-request";
+import { Subject } from "../models/enums/subject.enum";
+import { TypedResult } from "../models/wrapper/typed-result";
 @Injectable({
     providedIn: "root"
 })
@@ -25,6 +27,13 @@ export class UserService extends HttpClientService {
             this.getRoute('api/users/mentor/register'),
             registerRequest,
             { headers: this.getHeaders() }
+        );
+    }
+
+    getStudentSubjects() {
+        return this.httpClient.get<TypedResult<Subject[]>>(
+            this.getRoute('api/users/student/subjects'),
+            { headers: this.getHeaders(true) }
         );
     }
 }
