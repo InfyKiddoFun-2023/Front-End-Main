@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <a routerLink="new" class="flex-none button-gray rounded-md py-2">
+                    <a [routerLink]="['new']" class="flex-none button-gray rounded-md py-2">
                         New Course
                     </a>
                 </div>
@@ -47,7 +47,7 @@
                             <div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">{{course.title}}</div>
                             <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
                             <div class="flex justify-end p-2">
-                                <button class="button-primary rounded">View</button>
+                                <a [routerLink]="['/courses/' + course.id]" class="button-primary rounded">View</a>
                                 <button class="button-yellow rounded mx-2">Edit</button>
                                 <button class="button-red rounded">Delete</button>
                             </div>

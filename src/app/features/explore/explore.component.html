@@ -10,81 +10,169 @@
 			</p>
 		</div>
 	</div>
+	<div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 mb-4">
+        <div class="w-full md:flex-grow">
+            <div class="flex items-center">
+                <label for="simple-search" class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text" #searchInput [value]="searchString"
+                        (keyup.enter)="setSearchString(searchInput.value)"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Search">
+                </div>
+            </div>
+        </div>
+		<span>{{searchString}}</span>
+    </div>
 	<div class="bg-white dark:bg-gray-800 relative shadow sm:rounded-lg overflow-hidden">
 		<div class="space-y-3 md:space-y-0 p-4">
 			<h2 class="mb-2 text-xl tracking-tight font-semibold text-gray-800 dark:text-white">Based on your standard</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 				<a [routerLink]="['browse']" [queryParams]="{std:0}" class="flex justify-center">
-					<div
-						class="max-w-md rounded overflow-hidden border hover:shadow-lg mt-4 hover:scale-105 transition ease-in-out justify-center">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class I</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/CLASS I-V.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class I</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:1}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class II</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class II</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:2}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class III</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class III</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:3}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class IV</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class IV</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:4}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class V</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class V</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:5}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class VI</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class VI</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:6}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class VII</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class VII</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:7}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class VIII</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class VIII</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:8}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class IX</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/NON-MEDICAL.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class IX</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:9}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class X</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/COMMERCE.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class X</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:10}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class XI</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/HUMANITIES.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class XI</div>
 					</div>
 				</a>
 				<a [routerLink]="['browse']" [queryParams]="{std:11}" class="flex justify-center">
-					<div class="max-w-md rounded overflow-hidden shadow-lg mt-4 hover:scale-105 transition ease-in-out">
-						<div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">Class XII</div>
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
 						<img src="assets/img/OTHERS.jpg" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Class XII</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="bg-white dark:bg-gray-800 relative shadow sm:rounded-lg overflow-hidden mt-4">
+		<div class="space-y-3 md:space-y-0 p-4">
+			<h2 class="mb-2 text-xl tracking-tight font-semibold text-gray-800 dark:text-white">Based on your subject</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+				<a [routerLink]="['browse']" [queryParams]="{sub:1}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Language</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:2}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Mathematics</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:3}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Science</div>
+					</div>
+				</a>				
+				<a [routerLink]="['browse']" [queryParams]="{sub:4}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Social Science</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:5}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Environmental Studies</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:6}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">General Knowledge</div>
+					</div>
+				</a>				
+				<a [routerLink]="['browse']" [queryParams]="{sub:7}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Value Education</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:8}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS VI-X.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Accountancy</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:9}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/COMMERCE.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Commerce</div>
+					</div>
+				</a>
+				<a [routerLink]="['browse']" [queryParams]="{sub:0}" class="flex justify-center">
+					<div class="max-w-md rounded-lg overflow-hidden border hover:shadow-lg hover:scale-105 transition ease-in-out">
+						<img src="assets/img/CLASS I-V.JPG" alt="" class="w-full">
+						<div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg p-2">Others</div>
 					</div>
 				</a>
 			</div>

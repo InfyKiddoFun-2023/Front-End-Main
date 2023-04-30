@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { ExploreComponent } from './explore.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowseCoursesComponent } from './browse-courses/browse-courses.component';
-import { UserService } from 'src/app/services/user.service';
 import { SharedModule } from "../../shared/shared.module";
 
 const routes: Routes = [

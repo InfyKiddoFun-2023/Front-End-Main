@@ -6,6 +6,52 @@
             </p>
         </div>
     </div>
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 mb-4">
+        <div class="flex-grow">
+            <div class="flex items-center">
+                <label class="sr-only">Search</label>
+                <div class="relative w-full">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                            viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <input type="text" #searchInput [value]="searchString"
+                        (keyup.enter)="setSearchString(searchInput.value)"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        placeholder="Search">
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <label class="sr-only">Subject</label>
+            <div class="relative w-full">
+                <select #subject [value]="subjectValue" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <option>All</option>
+                    <option *ngFor="let sub of getSubjects()">
+                        {{ getSubjectText(sub) }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <label class="sr-only">Standard</label>
+            <div class="relative w-full">
+                <select #agegroup class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <option>All</option>
+                    <option *ngFor="let age of getAgeGroups()">
+                        {{ getAgeGroupText(age) }}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <button class="button-gray rounded-lg py-2 px-4">
+            Reset Filters
+        </button>
+    </div>
     <div *ngIf="courses.length == 0" class="flex justify-center text-center mb-8 lg:mb-16">
         <div
             class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -16,40 +62,22 @@
     </div>
     <div *ngIf="courses.length != 0">
         <div class="bg-white dark:bg-gray-800 relative shadow sm:rounded-lg overflow-hidden">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                <div class="w-full md:flex-grow">
-                    <div class="flex items-center">
-                        <label for="simple-search" class="sr-only">Search</label>
-                        <div class="relative w-full">
-                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                    viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                            <input type="text" #searchInput [value]="searchString"
-                                (keyup.enter)="setSearchString(searchInput.value)"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Search">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <app-pagination [pageSize]="this.pageSize" [totalItems]="this.totalItems" [pageNumber]="this.pageNumber" [totalPages]="this.totalPages" />
+            <app-pagination [pageSize]="this.pageSize" [totalItems]="this.totalItems" [pageNumber]="this.pageNumber"
+                [totalPages]="this.totalPages" />
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                 <div *ngFor="let course of courses"
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
-                    <div class="flex justify-center">
-                        <div class="max-w-md rounded overflow-hidden shadow-lg">
-                            <div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">{{course.title}}</div>
-                            <img src="assets/img/CLASS I-V.JPG" alt="" class="w-full">
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
+                    <a class="flex justify-center" [routerLink]="['/courses/' + course.id]">
+                        <div class="max-w-md rounded overflow-hidden border hover:border-0 hover:shadow-lg hover:scale-105 transition ease-in-out">
+                            <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
+                            <div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg px-2 pt-2">{{course.title}}</div>
+                            <div class="bg-gray-50 text-gray-500 border-t-1 text-center text-sm pt-1 pb-2 px-2">By {{course.mentorName}}</div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-            <app-pagination [pageSize]="this.pageSize" [totalItems]="this.totalItems" [pageNumber]="this.pageNumber" [totalPages]="this.totalPages" />
+            <app-pagination [pageSize]="this.pageSize" [totalItems]="this.totalItems" [pageNumber]="this.pageNumber"
+                [totalPages]="this.totalPages" />
         </div>
     </div>
 </section>
