@@ -24,7 +24,7 @@ export class CourseService extends HttpClientService {
                 params: new HttpParams()
                     .set('pageNumber', pageNumber.toString())
                     .set('pageSize', pageSize.toString())
-                    .set('searchString', searchString.toString())
+                    .set('searchQuery', searchString.toString())
             }
         );
     }
@@ -37,12 +37,12 @@ export class CourseService extends HttpClientService {
                 params: new HttpParams()
                     .set('pageNumber', pageNumber.toString())
                     .set('pageSize', pageSize.toString())
-                    .set('searchString', searchString.toString())
+                    .set('searchQuery', searchString.toString())
             }
         );
     }
 
-    getCourses(pageNumber: Number, pageSize: Number, searchString: String) {
+    getCourses(pageNumber: Number, pageSize: Number, searchString: String, ageGroup: AgeGroup | null, subject: Subject | null) {
         return this.httpClient.get<PaginatedResult<CourseResponse>>(            
             this.getRoute('api/courses'),
             {
@@ -50,7 +50,10 @@ export class CourseService extends HttpClientService {
                 params: new HttpParams()
                     .set('pageNumber', pageNumber.toString())
                     .set('pageSize', pageSize.toString())
-                    .set('searchString', searchString.toString())
+                    .set('searchQuery', searchString.toString())
+                    .set('subject', (!Number.isNaN(subject) ? subject : '') ?? '')
+                    .set('ageGroup', (!Number.isNaN(ageGroup) ? ageGroup : '') ?? '')
+
             }
         );
     }
