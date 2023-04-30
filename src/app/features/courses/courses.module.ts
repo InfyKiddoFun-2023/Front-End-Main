@@ -7,10 +7,12 @@ import { StudentCoursesComponent } from './student-courses/student-courses.compo
 import { MentorCoursesComponent } from './mentor-courses/mentor-courses.component';
 import { MentorCourseService } from 'src/app/services/mentor-course.service';
 import { CreateNewCourseComponent } from './create-new-course/create-new-course.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CoursesComponent },
   { path: 'new', component: CreateNewCourseComponent },
+  { path: ':id', component: CourseDetailComponent },
   { path: '**', redirectTo: 'not-found' }
 ];
 
@@ -19,7 +21,8 @@ const routes: Routes = [
     CoursesComponent,
     StudentCoursesComponent,
     MentorCoursesComponent,
-    CreateNewCourseComponent
+    CreateNewCourseComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,
