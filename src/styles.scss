@@ -11,4 +11,28 @@
     .navlink.active {
         @apply block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white;
     }
+
+    .button-primary {
+        @apply text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium text-sm px-4 py-1.5 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800 active:scale-95 transition ease-in-out;
+    }
+
+    .button-yellow {
+        @apply text-white bg-yellow-500 hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-300 font-medium text-sm px-4 py-1.5 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800 active:scale-95 transition ease-in-out;
+    }
+
+    .button-red {
+        @apply text-white bg-red-500 hover:bg-red-600 focus:ring-4 focus:ring-red-300 font-medium text-sm px-4 py-1.5 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800 active:scale-95 transition ease-in-out;
+    }
+
+    .button-gray {
+        @apply text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-4 py-1.5 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 active:scale-95 transition ease-in-out;
+    }
+
+    .pagination-button.inactive {
+        @apply flex items-center justify-center px-3 py-2 text-sm leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+    }
+
+    .pagination-button.active {
+        @apply z-10 flex items-center justify-center px-3 py-2 text-sm leading-tight border text-primary-600 border-primary-300 hover:bg-primary-100 hover:text-primary-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white;
+    }
 }
