@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LayoutModule } from './layout/layout.module';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ClaimsDataService } from './services/claims-data.service';
 import { UserService } from './services/user.service';
+import { MainLayoutModule } from './layout/main-layout/main-layout.module';
+import { AuthLayoutModule } from './layout/auth-layout/auth-layout.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import { UserService } from './services/user.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LayoutModule,
+    MainLayoutModule,
+    AuthLayoutModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

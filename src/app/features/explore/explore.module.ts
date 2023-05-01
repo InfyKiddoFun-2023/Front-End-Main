@@ -4,17 +4,11 @@ import { ExploreComponent } from './explore.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowseCoursesComponent } from './browse-courses/browse-courses.component';
 import { SharedModule } from "../../shared/shared.module";
-import { MainLayoutComponent } from 'src/app/layout/main-layout/main-layout.component';
 
 const routes: Routes = [
-    {
-        path: '', component: MainLayoutComponent,
-        children: [
-            { path: '', pathMatch: 'full', component: ExploreComponent },
-            { path: 'browse', component: BrowseCoursesComponent },
-            { path: '**', redirectTo: 'not-found' }
-        ]
-    }
+    { path: '', pathMatch: 'full', component: ExploreComponent, data: { animation: 'Explore' } },
+    { path: 'browse', component: BrowseCoursesComponent, data: { animation: 'Browse' } },
+    { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

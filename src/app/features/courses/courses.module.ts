@@ -8,18 +8,12 @@ import { MentorCoursesComponent } from './mentor-courses/mentor-courses.componen
 import { MentorCourseService } from 'src/app/services/mentor-course.service';
 import { CreateNewCourseComponent } from './create-new-course/create-new-course.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
-import { MainLayoutComponent } from 'src/app/layout/main-layout/main-layout.component';
 
 const routes: Routes = [
-  {
-    path: '', component: MainLayoutComponent,
-    children: [
-      { path: '', pathMatch: 'full', component: CoursesComponent },
-      { path: 'new', component: CreateNewCourseComponent },
-      { path: ':id', component: CourseDetailComponent },
-      { path: '**', redirectTo: 'not-found' }
-    ]
-  }
+  { path: '', pathMatch: 'full', component: CoursesComponent, data: { animation: 'Courses'} },
+  { path: 'new', component: CreateNewCourseComponent, data: { animation: 'NewCourse'} },
+  { path: ':id', component: CourseDetailComponent, data: { animation: 'CourseDetail'} },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

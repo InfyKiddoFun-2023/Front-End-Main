@@ -1,23 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { AuthLayoutComponent } from './auth-layout.component';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, data: { animation: 'Home'} },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-];
+  { path: '', component: AuthLayoutComponent, loadChildren: () => import('../../features/account/account.module').then(m => m.AccountModule) },
+]
 
 @NgModule({
   declarations: [
-    HomeComponent
+    AuthLayoutComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
   ],
   exports: [
+    AuthLayoutComponent,
     RouterModule
   ]
 })
-export class HomeModule { }
+export class AuthLayoutModule { }
