@@ -29,9 +29,9 @@
         <div class="flex items-center">
             <label class="sr-only">Subject</label>
             <div class="relative w-full">
-                <select #subject [value]="subjectValue" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <select #subject [value]="subjectValue" (change)="setSubject(subject.value)" (keyup.enter)="setSubject(subject.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option>All</option>
-                    <option *ngFor="let sub of getSubjects()">
+                    <option *ngFor="let sub of getSubjects()" [value]="sub">
                         {{ getSubjectText(sub) }}
                     </option>
                 </select>
@@ -40,15 +40,15 @@
         <div class="flex items-center">
             <label class="sr-only">Standard</label>
             <div class="relative w-full">
-                <select #agegroup class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <select #agegroup [value]="agegroup" (change)="setAgeGroup(agegroup.value)" (keyup.enter)="setAgeGroup(agegroup.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option>All</option>
-                    <option *ngFor="let age of getAgeGroups()">
+                    <option *ngFor="let age of getAgeGroups()" [value]="age">
                         {{ getAgeGroupText(age) }}
                     </option>
                 </select>
             </div>
         </div>
-        <button class="button-gray rounded-lg py-2 px-4">
+        <button class="button-gray rounded-lg py-2 px-4" (click)="resetFilters()">
             Reset Filters
         </button>
     </div>

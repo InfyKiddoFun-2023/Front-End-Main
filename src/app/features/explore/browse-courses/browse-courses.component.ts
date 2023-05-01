@@ -80,11 +80,47 @@ export class BrowseCoursesComponent implements OnInit {
     }
   }
 
+  setSubject(subject: String) {
+    let key: keyof Subject = subject as keyof Subject;
+    this.subject = Subject.Mathematics + Subject[key as keyof typeof Subject] - Subject[Object.keys(Subject)[0] as keyof typeof Subject];
+    this.pageNumber = 1;
+    let queryParams: any = { sub: subject };
+    if (this.ageGroup) {
+      queryParams.std = this.ageGroup;
+    }
+    if (this.searchString) {
+      queryParams.search = this.searchString;
+    }
+    this.router.navigate(['/explore/browse'], { queryParams: queryParams });
+  }
+
   getAgeGroupText(enumValue: number) {
     return AgeGroup[enumValue];
   }
 
   getAgeGroups() {
     return Object.values(AgeGroup).map(value => Number(value)).filter(value => !isNaN(value));
+  }
+
+  setAgeGroup(ageGroup: String) {    
+    let key: keyof AgeGroup = ageGroup as keyof AgeGroup;
+    this.ageGroup = AgeGroup.ClassI + AgeGroup[key as keyof typeof AgeGroup] - AgeGroup[Object.keys(AgeGroup)[0] as keyof typeof AgeGroup];
+    this.pageNumber = 1;
+    let queryParams: any = { std: ageGroup };
+    if (this.subject) {
+      queryParams.sub = this.subject;
+    }
+    if (this.searchString) {
+      queryParams.search = this.searchString;
+    }
+    this.router.navigate(['/explore/browse'], { queryParams: queryParams });
+  }
+
+  resetFilters() {
+    this.ageGroup = null;
+    this.subject = null;
+    this._searchString = '';
+    this.pageNumber = 1;
+    this.router.navigate(['/explore/browse'], { queryParams: {} });
   }
 }
