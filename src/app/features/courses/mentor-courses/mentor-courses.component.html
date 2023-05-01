@@ -48,43 +48,11 @@
                         </div>
                     </div>
                 </div>
-                <!-- <button type="button" data-dropdown-toggle="dropdown"
-                    class="text-black hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                    </svg>
-                    <span class="sr-only">Options</span>
-                </button>
-                <div id="dropdown"
-                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                        </li>
-                    </ul>
-                </div> -->
                 <div class="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <div class="flex justify-center" *ngFor="let course of courses">
                         <div
                             class="rounded-md overflow-hidden border hover:scale-105 hover:shadow-lg transition ease-in-out">
                             <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
-                            <!-- <div class="flex justify-end p-2">
-                                <a [routerLink]="['/courses/' + course.id]" class="button-primary rounded">View</a>
-                                <button class="button-yellow rounded mx-2">Edit</button>
-                                <button class="button-red rounded">Delete</button>
-                            </div> -->
                             <div class="bg-gray-50 text-gray-600 border-t-1 font-semibold flex flex-col justify-between items-center text-lg px-2 py-3">
                                 <span class="ps-2">{{course.title}}</span>
                                 <div class="flex rounded-md shadow-sm mt-2" role="group">
