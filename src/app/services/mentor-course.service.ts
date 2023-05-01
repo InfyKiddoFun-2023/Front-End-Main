@@ -5,6 +5,9 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { PaginatedResult } from "../models/wrapper/paginated-result";
 import { CourseResponse } from "../models/courses/course-response";
+import { NewCourseRequest } from "../models/courses/new-quote-request";
+import { TypedResult } from "../models/wrapper/typed-result";
+import { Result } from "../models/wrapper/result";
 
 @Injectable({
     providedIn: "root"
@@ -25,6 +28,21 @@ export class MentorCourseService extends HttpClientService {
                     searchString: searchString.toString()
                 }
             }
+        );
+    }
+
+    createCourse(createCourseRequest: NewCourseRequest) {
+        return this.httpClient.post<TypedResult<String>>(
+            this.getRoute('api/mentor/courses/add'),
+            createCourseRequest,
+            { headers: this.getHeaders(true) }
+        );
+    }
+
+    deleteCourse(courseId: String) {
+        return this.httpClient.delete<Result>(
+            this.getRoute('api/mentor/courses/' + courseId),
+            { headers: this.getHeaders(true) }
         );
     }
 }

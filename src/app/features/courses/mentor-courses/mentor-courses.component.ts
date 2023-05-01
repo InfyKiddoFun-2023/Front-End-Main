@@ -11,7 +11,7 @@ export class MentorCoursesComponent implements OnInit {
 
   private _pageNumber: number = 1;
   private pageSize: number = 10;
-  private _searchString: String = 'ABC';
+  private _searchString: String = '';
   private _isLoading: boolean = false;
   public get isLoading(): boolean { return this._isLoading; }
 
@@ -42,5 +42,17 @@ export class MentorCoursesComponent implements OnInit {
         this.courses = response.data;
         this._isLoading = false;
       });
+  }
+
+  deleteCourse(courseId: string) {
+    if (confirm('Are you sure you want to delete this course?')) {
+      this.mentorCourseService.deleteCourse(courseId).subscribe(response => {
+        if (response.succeeded) {
+          this.getCourses();
+        } else {
+          alert('Failed to delete course: {0}'.replace('{0}', response.messages[0].toString()));
+        }
+      });
+    }
   }
 }

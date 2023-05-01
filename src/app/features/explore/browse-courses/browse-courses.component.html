@@ -1,4 +1,4 @@
-<section class="bg-white dark:bg-gray-900">
+<section class="bg-white dark:bg-gray-900 mx-3 mt-3">
     <div class="p-4 mx-auto max-w-screen-xl text-center lg:py-8 lg:px-6">
         <div class="mx-auto mb-8 max-w-screen-sm">
             <h2 class="mb-4 text-4xl tracking-tight font-semibold text-gray-900 dark:text-white">Explore Courses </h2>
@@ -6,7 +6,7 @@
             </p>
         </div>
     </div>
-    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 mb-4">
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 space-x-3 mb-4">
         <div class="flex-grow">
             <div class="flex items-center">
                 <label class="sr-only">Search</label>
@@ -29,7 +29,9 @@
         <div class="flex items-center">
             <label class="sr-only">Subject</label>
             <div class="relative w-full">
-                <select #subject [value]="subjectValue" (change)="setSubject(subject.value)" (keyup.enter)="setSubject(subject.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <select #subject [value]="subjectValue" (change)="setSubject(subject.value)"
+                    (keyup.enter)="setSubject(subject.value)"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option>All</option>
                     <option *ngFor="let sub of getSubjects()" [value]="sub">
                         {{ getSubjectText(sub) }}
@@ -40,7 +42,9 @@
         <div class="flex items-center">
             <label class="sr-only">Standard</label>
             <div class="relative w-full">
-                <select #agegroup [value]="agegroup" (change)="setAgeGroup(agegroup.value)" (keyup.enter)="setAgeGroup(agegroup.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                <select #agegroup [value]="agegroup" (change)="setAgeGroup(agegroup.value)"
+                    (keyup.enter)="setAgeGroup(agegroup.value)"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                     <option>All</option>
                     <option *ngFor="let age of getAgeGroups()" [value]="age">
                         {{ getAgeGroupText(age) }}
@@ -56,7 +60,8 @@
         <div
             class="block max-w-4xl p-12 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition ease-in">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Courses Found</h5>
-            <p class="font-normal text-gray-700 dark:text-gray-400">Seems no courses has been added on this subject and standard yet.
+            <p class="font-normal text-gray-700 dark:text-gray-400">Seems no courses has been added on this subject and
+                standard yet.
                 suitable for you.</p>
         </div>
     </div>
@@ -65,13 +70,18 @@
             <app-pagination [pageSize]="this.pageSize" [totalItems]="this.totalItems" [pageNumber]="this.pageNumber"
                 [totalPages]="this.totalPages" />
             <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                <div *ngFor="let course of courses"
-                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
-                    <a class="flex justify-center" [routerLink]="['/courses/' + course.id]">
-                        <div class="max-w-md rounded overflow-hidden border hover:border-0 hover:shadow-lg hover:scale-105 transition ease-in-out">
-                            <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
-                            <div class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg px-2 pt-2">{{course.title}}</div>
-                            <div class="bg-gray-50 text-gray-500 border-t-1 text-center text-sm pt-1 pb-2 px-2">By {{course.mentorName}}</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mx-4">
+                    <a class="flex justify-center" [routerLink]="['/courses/' + course.id]"
+                        *ngFor="let course of courses">
+                        <div class="w-full" style="background: url('assets/img/course_placeholder.jpg');">
+                            <div class="max-w-md rounded overflow-hidden border hover:border-0 hover:shadow-lg hover:scale-105 transition ease-in-out">                                
+                                <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
+                                <div
+                                    class="bg-gray-50 text-gray-600 border-t-1 font-semibold text-center text-lg px-2 pt-2">
+                                    {{course.title}}</div>
+                                <div class="bg-gray-50 text-gray-500 border-t-1 text-center text-sm pt-1 pb-2 px-2">By
+                                    {{course.mentorName}}</div>                                
+                            </div>
                         </div>
                     </a>
                 </div>

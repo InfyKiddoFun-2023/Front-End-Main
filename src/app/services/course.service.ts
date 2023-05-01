@@ -7,6 +7,7 @@ import { CourseResponse } from "../models/courses/course-response";
 import { CourseFullResponse } from "../models/courses/course-full-response";
 import { Subject } from "../models/enums/subject.enum";
 import { AgeGroup } from "../models/enums/age-group.enum";
+import { TypedResult } from "../models/wrapper/typed-result";
 
 @Injectable({
     providedIn: "root"
@@ -59,7 +60,7 @@ export class CourseService extends HttpClientService {
     }
 
     getCourse(id: String) {
-        return this.httpClient.get<CourseFullResponse>(            
+        return this.httpClient.get<TypedResult<CourseFullResponse>>(            
             this.getRoute('api/courses/' + id),
             {
                 headers: this.getHeaders(true)

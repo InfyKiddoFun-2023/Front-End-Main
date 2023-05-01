@@ -44,13 +44,25 @@ export const slideInAnimation =
         transition('Explore => Browse', slideRightSteps),
         transition('Browse => Explore', slideLeftSteps),
         transition('Explore => *', slideRightSteps),
+
         transition('Courses => NewCourse', slideRightSteps),
         transition('NewCourse => Courses', slideLeftSteps),
+
+        transition('Courses => EditCourse', slideRightSteps),
+        transition('EditCourse => Courses', slideRightSteps),
+
+        transition('NewCourse => ManageModules', slideRightSteps),
+        transition('ManageModules => NewCourse', slideLeftSteps),
+        transition('ManageModules => Courses', slideLeftSteps),
+
         transition('Courses => CourseDetail', slideRightSteps),
-        transition('CourseDetail => Courses', slideLeftSteps),
+        transition('CourseDetail => Courses', slideLeftSteps),  
+              
         transition('Browse => CourseDetail', slideRightSteps),
         transition('CourseDetail => Browse', slideLeftSteps),
+
         transition('Courses => About', slideRightSteps),
         transition('Courses => *', slideLeftSteps),
+
         transition('About => *', slideLeftSteps),
     ]);

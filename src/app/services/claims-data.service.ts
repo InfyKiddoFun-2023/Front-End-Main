@@ -42,4 +42,8 @@ export class ClaimsDataService {
     get role() {
         return this.claims.Role;
     }
+
+    get subject() {
+        return this.claims.Subject;
+    }
 }

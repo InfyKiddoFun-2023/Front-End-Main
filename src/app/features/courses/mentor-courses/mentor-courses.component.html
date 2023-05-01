@@ -12,44 +12,95 @@
         <div *ngIf="courses.length == 0" class="flex justify-center text-center">
             <div
                 class="block max-w-4xl p-12 bg-white border border-gray-200 rounded-2xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 transition ease-in">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Courses Created!</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">No Courses Created!
+                </h5>
                 <p class="font-normal text-gray-700 dark:text-gray-400">Create your first course now!</p>
             </div>
         </div>
         <div *ngIf="courses.length != 0">
             <div class="bg-white dark:bg-gray-800 relative shadow sm:rounded-lg overflow-hidden">
-                <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
-                    <div class="w-full md:flex-grow">
+                <div
+                    class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
+                    <a [routerLink]="['new']" class="flex items-center gap-2 button-gray rounded-md py-2 ps-3 pe-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                        </svg>
+                        New Course
+                    </a>
+                    <div class="md:flex-grow">
                         <div class="flex items-center">
                             <label for="simple-search" class="sr-only">Search</label>
                             <div class="relative w-full">
                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                    viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                    clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                                <input type="text" #searchInput [value]="searchString" (keyup.enter)="setSearchString(searchInput.value)"
+                                    <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400"
+                                        fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd"
+                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <input type="text" #searchInput [value]="searchString"
+                                    (keyup.enter)="setSearchString(searchInput.value)"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                     placeholder="Search">
                             </div>
                         </div>
                     </div>
-                    <a [routerLink]="['new']" class="flex-none button-gray rounded-md py-2">
-                        New Course
-                    </a>
                 </div>
-                <div *ngFor="let course of courses" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 m-4">
-                    <div class="flex justify-center">
-                        <div class="max-w-md rounded overflow-hidden border hover:scale-105 hover:shadow-lg transition ease-in-out">
-                            <div class="bg-gray-200 text-gray-700 font-bold text-xl p-2">{{course.title}}</div>
+                <!-- <button type="button" data-dropdown-toggle="dropdown"
+                    class="text-black hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
+                    </svg>
+                    <span class="sr-only">Options</span>
+                </button>
+                <div id="dropdown"
+                    class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                        </li>
+                    </ul>
+                </div> -->
+                <div class="m-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="flex justify-center" *ngFor="let course of courses">
+                        <div
+                            class="rounded-md overflow-hidden border hover:scale-105 hover:shadow-lg transition ease-in-out">
                             <img src="assets/img/course_placeholder.jpg" alt="" class="w-full">
-                            <div class="flex justify-end p-2">
+                            <!-- <div class="flex justify-end p-2">
                                 <a [routerLink]="['/courses/' + course.id]" class="button-primary rounded">View</a>
                                 <button class="button-yellow rounded mx-2">Edit</button>
                                 <button class="button-red rounded">Delete</button>
+                            </div> -->
+                            <div class="bg-gray-50 text-gray-600 border-t-1 font-semibold flex flex-col justify-between items-center text-lg px-2 py-3">
+                                <span class="ps-2">{{course.title}}</span>
+                                <div class="flex rounded-md shadow-sm mt-2" role="group">
+                                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+                                        [routerLink]="['/courses/' + course.id]">
+                                        View
+                                    </button>
+                                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-50 hover:text-yellow-500 focus:z-10 focus:ring-2 focus:ring-yellow-200 focus:text-yellow-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-yellow-200 dark:focus:text-white"
+                                        [routerLink]="['/courses/' + course.id + '/edit']">
+                                        Edit
+                                    </button>
+                                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-red-700 focus:z-10 focus:ring-2 focus:ring-red-700 focus:text-red-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-red-500 dark:focus:text-white"
+                                        (click)="deleteCourse(course.id)">
+                                        Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

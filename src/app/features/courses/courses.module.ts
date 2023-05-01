@@ -8,11 +8,18 @@ import { MentorCoursesComponent } from './mentor-courses/mentor-courses.componen
 import { MentorCourseService } from 'src/app/services/mentor-course.service';
 import { CreateNewCourseComponent } from './create-new-course/create-new-course.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ManageModulesComponent } from './manage-modules/manage-modules.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
+import { MentorCourseDetailComponent } from './mentor-course-detail/mentor-course-detail.component';
+import { StudentCourseDetailComponent } from './student-course-detail/student-course-detail.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CoursesComponent, data: { animation: 'Courses'} },
   { path: 'new', component: CreateNewCourseComponent, data: { animation: 'NewCourse'} },
   { path: ':id', component: CourseDetailComponent, data: { animation: 'CourseDetail'} },
+  { path: ':id/modules', component: ManageModulesComponent, data: { animation: 'ManageModules'} },
+  { path: ':id/edit', component: EditCourseComponent, data: { animation: 'EditCourse'} },
   { path: '**', redirectTo: 'not-found' }
 ];
 
@@ -22,11 +29,16 @@ const routes: Routes = [
     StudentCoursesComponent,
     MentorCoursesComponent,
     CreateNewCourseComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    ManageModulesComponent,
+    EditCourseComponent,
+    MentorCourseDetailComponent,
+    StudentCourseDetailComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
   providers: [StudentCourseService, MentorCourseService]
 })
