@@ -5,6 +5,8 @@ import { EnvironmentUrlService } from "./http/env-url.service";
 import { PaginatedResult } from "../models/wrapper/paginated-result";
 import { CourseResponse } from "../models/courses/course-response";
 import { Observable } from "rxjs";
+import { Result } from "../models/wrapper/result";
+import { TypedResult } from "../models/wrapper/typed-result";
 
 @Injectable({
     providedIn: "root"
@@ -24,6 +26,21 @@ export class StudentCourseService extends HttpClientService {
                     .set('pageSize', pageSize.toString())
                     .set('searchString', searchString)
             }
+        );
+    }
+
+    enrollCourse(courseId: string) {
+        return this.httpClient.post<Result>(
+            this.getRoute('api/student/courses/' + courseId + '/enroll'),
+            { 'courseId': courseId },
+            { headers: this.getHeaders(true) }
+        );
+    }
+
+    isEnrolled(courseId: string) {
+        return this.httpClient.get<TypedResult<Boolean>>(
+            this.getRoute('api/student/courses/enrollment/' + courseId),
+            { headers: this.getHeaders(true) }
         );
     }
 }

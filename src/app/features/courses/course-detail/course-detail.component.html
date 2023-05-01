@@ -1,5 +1,5 @@
 <app-mentor-course-detail [course]="course" *ngIf="isMentor"></app-mentor-course-detail>
-<app-student-course-detail *ngIf="isStudent"></app-student-course-detail>
+<app-student-course-detail [course]="course" *ngIf="isStudent"></app-student-course-detail>
 <!--TODO: Separate components of Course Detail for Mentor and Student
 <section class="bg-white dark:bg-gray-900">
     <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
