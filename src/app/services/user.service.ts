@@ -6,6 +6,7 @@ import { StudentRegisterRequest } from "../models/users/student-register-request
 import { MentorRegisterRequest } from "../models/users/mentor-register-request";
 import { Subject } from "../models/enums/subject.enum";
 import { TypedResult } from "../models/wrapper/typed-result";
+import { Result } from "../models/wrapper/result";
 @Injectable({
     providedIn: "root"
 })
@@ -23,7 +24,7 @@ export class UserService extends HttpClientService {
     }
 
     registerMentor(registerRequest: MentorRegisterRequest) {
-        return this.httpClient.post(
+        return this.httpClient.post<Result>(
             this.getRoute('api/users/mentor/register'),
             registerRequest,
             { headers: this.getHeaders() }

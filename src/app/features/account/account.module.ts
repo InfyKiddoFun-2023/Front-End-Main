@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './account/account.component';
+import { RegisterStudentComponent } from './register-student/register-student.component';
+import { RegisterMentorComponent } from './register-mentor/register-mentor.component';
 
 
 
@@ -15,6 +17,8 @@ import { AccountComponent } from './account/account.component';
     RegisterComponent,
     ForgotPasswordComponent,
     AccountComponent,
+    RegisterStudentComponent,
+    RegisterMentorComponent,
   ],
   imports: [
     CommonModule,
