@@ -1,15 +1,19 @@
 <section class="bg-white dark:bg-gray-900">
     <div class="py-4 px-4 mx-auto max-w-screen-lg lg:py-8">
-        <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Create a new course</h2>
+        <h2 class="mb-4 text-2xl font-semibold text-center text-gray-900 dark:text-white">Create a new course</h2>
+    </div>
+    <div class="mx-auto max-w-screen-lg">
         <form (submit)="onSubmit()" [formGroup]="newCourseRequest">
             <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div class="sm:col-span-2">
-                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Title</label>
-                    <input formControlName="title" type="text" placeholder="Title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course
+                        Title</label>
+                    <input formControlName="title" type="text" placeholder="Title"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                 </div>
                 <div class="w-full col-span-2">
-                    <label for="description"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Description</label>
+                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course
+                        Description</label>
                     <textarea formControlName="description" name="brand" id="description"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Description"></textarea>
@@ -17,7 +21,9 @@
                 <div class="w-full">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Standard</label>
                     <div class="relative w-full">
-                        <select #agegroup [value]="agegroup" (change)="setAgeGroup(agegroup.value)" (keyup.enter)="setAgeGroup(agegroup.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <select #agegroup [value]="agegroup" (change)="setAgeGroup(agegroup.value)"
+                            (keyup.enter)="setAgeGroup(agegroup.value)"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option *ngFor="let age of getAgeGroups()" [value]="age">
                                 {{ age }}
                             </option>
@@ -25,9 +31,12 @@
                     </div>
                 </div>
                 <div class="w-full">
-                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Difficulty Level</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Difficulty
+                        Level</label>
                     <div class="relative w-full">
-                        <select #diffLevel [value]="diffLevel" (change)="setDifficultyLevel(diffLevel.value)" (keyup.enter)="setDifficultyLevel(diffLevel.value)" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <select #diffLevel [value]="diffLevel" (change)="setDifficultyLevel(diffLevel.value)"
+                            (keyup.enter)="setDifficultyLevel(diffLevel.value)"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-4 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option *ngFor="let level of getDifficultyLevels()" [value]="level">
                                 {{ level }}
                             </option>
@@ -35,14 +44,19 @@
                     </div>
                 </div>
                 <div class="sm:col-span-2">
-                    <label for="startdate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course Start Date</label>
-                    <input formControlName="startDate" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                    <label for="startdate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Course
+                        Start
+                        Date</label>
+                    <input formControlName="startDate" type="date"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                 </div>
             </div>
-            <button type="submit"
-                class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-                Create Course
-            </button>
+            <div class="flex justify-end">
+                <button type="submit"
+                    class="inline-flex justify-end items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                    Create Course
+                </button>
+            </div>
         </form>
     </div>
 </section>
