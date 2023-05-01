@@ -7,15 +7,15 @@ export abstract class HttpClientService {
 
   protected getHeaders(setAuthToken: boolean = false) {
     let headers = new HttpHeaders({
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
       'accept': '*/*',
       'Access-Control-Allow-Origin': 'true'
     });
     if (setAuthToken) {
       const token = localStorage.getItem('authToken');
       if (token != null && token != '') {
-        headers.append('Authorization', `Bearer ${token}`);
-      }
+        headers = headers.append('Authorization', `Bearer ${token}`);
+      } 
     }
     return headers;
   }
