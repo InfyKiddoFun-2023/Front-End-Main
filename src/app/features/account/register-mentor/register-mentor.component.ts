@@ -40,7 +40,7 @@ export class RegisterMentorComponent implements OnInit {
   }
 
   get subjectValue() {
-    return this.registerRequest.get('subjects')?.value;
+    return Subject[this.registerRequest.get('subjects')?.value];
   }
 
   setSubject(subject: String) {

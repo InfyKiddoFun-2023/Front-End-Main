@@ -16,7 +16,7 @@ export class UserService extends HttpClientService {
     }
 
     registerStudent(registerRequest: StudentRegisterRequest) {
-        return this.httpClient.post(
+        return this.httpClient.post<Result>(
             this.getRoute('api/users/student/register'),
             registerRequest,
             { headers: this.getHeaders() }
