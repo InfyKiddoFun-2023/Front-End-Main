@@ -5,9 +5,10 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { PaginatedResult } from "../models/wrapper/paginated-result";
 import { CourseResponse } from "../models/courses/course-response";
-import { NewCourseRequest } from "../models/courses/new-quote-request";
+import { NewCourseRequest } from "../models/courses/new-course-request";
 import { TypedResult } from "../models/wrapper/typed-result";
 import { Result } from "../models/wrapper/result";
+import { NewCourseModuleRequest } from "../models/courses/new-course-module-request";
 
 @Injectable({
     providedIn: "root"
@@ -42,6 +43,14 @@ export class MentorCourseService extends HttpClientService {
     deleteCourse(courseId: String) {
         return this.httpClient.delete<Result>(
             this.getRoute('api/mentor/courses/' + courseId),
+            { headers: this.getHeaders(true) }
+        );
+    }
+
+    createCourseModule(newCourseModuleRequest: NewCourseModuleRequest) {
+        return this.httpClient.post<Result>(
+            this.getRoute('api/mentor/courses/module/add'),
+            newCourseModuleRequest,
             { headers: this.getHeaders(true) }
         );
     }

@@ -13,6 +13,7 @@ import { ManageModulesComponent } from './manage-modules/manage-modules.componen
 import { EditCourseComponent } from './edit-course/edit-course.component';
 import { MentorCourseDetailComponent } from './mentor-course-detail/mentor-course-detail.component';
 import { StudentCourseDetailComponent } from './student-course-detail/student-course-detail.component';
+import { SharedModule } from "../../shared/shared.module";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CoursesComponent, data: { animation: 'Courses'} },
@@ -24,22 +25,23 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    CoursesComponent,
-    StudentCoursesComponent,
-    MentorCoursesComponent,
-    CreateNewCourseComponent,
-    CourseDetailComponent,
-    ManageModulesComponent,
-    EditCourseComponent,
-    MentorCourseDetailComponent,
-    StudentCourseDetailComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    ReactiveFormsModule
-  ],
-  providers: [StudentCourseService, MentorCourseService]
+    declarations: [
+        CoursesComponent,
+        StudentCoursesComponent,
+        MentorCoursesComponent,
+        CreateNewCourseComponent,
+        CourseDetailComponent,
+        ManageModulesComponent,
+        EditCourseComponent,
+        MentorCourseDetailComponent,
+        StudentCourseDetailComponent
+    ],
+    providers: [StudentCourseService, MentorCourseService],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        ReactiveFormsModule,
+        SharedModule
+    ]
 })
 export class CoursesModule { }

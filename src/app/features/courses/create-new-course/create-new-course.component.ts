@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NewCourseRequest } from 'src/app/models/courses/new-quote-request';
+import { NewCourseRequest } from 'src/app/models/courses/new-course-request';
 import { AgeGroup } from 'src/app/models/enums/age-group.enum';
 import { DifficultyLevel } from 'src/app/models/enums/difficulty-level';
 import { Subject } from 'src/app/models/enums/subject.enum';
