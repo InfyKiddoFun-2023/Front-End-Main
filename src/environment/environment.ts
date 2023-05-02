@@ -1,4 +1,4 @@
 export const environment = {
     production: false,
-    hostName: 'https://infykiddofun.sathiyaraman-m.com'
+    hostName: 'https://comet.sathiyaraman-m.com'
 }

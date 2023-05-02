@@ -20,6 +20,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         SharedModule
-    ]
+    ],
+    exports: [RouterModule]
 })
 export class ExploreModule { }
